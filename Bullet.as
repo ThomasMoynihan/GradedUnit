@@ -7,19 +7,19 @@
 ////////////////////////////////////////////////////////////////////////////
 package 
 {
-
+	// Imports
 	import flash.display.MovieClip;
 	import flash.events.*;
 
 	public class Bullet extends MovieClip
 	{
-		private var _root:*;
-		public var target;
-		public var damage:int;
-		public var slowness:int;
-		private var xSpeed:Number;
-		private var ySpeed:Number;
-		private var maxSpeed:Number = 5;
+		private var _root:*;			
+		public var target;					// Target of bullet
+		public var damage:int;				// Damage of the bullet
+		public var slowness:int;			// Slowness effect of the bullet
+		private var xSpeed:Number;			// Horrizontal Speed
+		private var ySpeed:Number;			// Vertical Speed
+		private var maxSpeed:Number = 5;	// Maxium Speed bullet can travel
 
 
 		public function Bullet()
@@ -27,45 +27,56 @@ package
 			addEventListener(Event.ADDED,beginClass);
 			addEventListener(Event.ENTER_FRAME,eFrame);
 		}
-
+		
+		// Only runs once when the function is called
 		private function beginClass(e:Event):void
 		{
 			_root = MovieClip(root);
 
-
-			//bullet need to get image will import later
+			// Draws a basic bullet 
+			// Likely to be change? Will add the graphics when completed
+			// Sends Bullet to the stage
+			
 			this.graphics.beginFill(0xFFFFFF);
 			this.graphics.drawCircle(0,0,2);
 			this.graphics.endFill();
 
 		}
+		// Runs every frame when the function is called 
 		private function eFrame(e:Event):void{
-			var yDist:Number=target.y+12.5 - this.y; // how far the directionm
+			
+			var yDist:Number=target.y+12.5 - this.y;	 // Work out the distance from the target 
 			var xDist:Number=target.x+12.5 - this.x;
 			var angle:Number=Math.atan2(yDist,xDist);
 			
-			ySpeed=Math.sin(angle) * maxSpeed;
+			ySpeed=Math.sin(angle) * maxSpeed;			// Create the speed of the bullet
 			xSpeed=Math.cos(angle) * maxSpeed;
 			
-			this.x +=  xSpeed;
+			this.x +=  xSpeed;							// Speed gets added to the possition
 			this.y +=  ySpeed;			
 			
-			if(this.hitTestObject(target)){
-				target.health -=damage;
-				target.maxSpeed -= slowness
-				destoryThis();
-			}
-			if (target == null || _root.gameOver == true){
-				destoryThis();
-			}
-		}
+			if(this.hitTestObject(target)){				// Use hit test to work out of hit the target 
+				target.health -=damage;					// Remove damage of the bullet from the heath of the target
+				target.maxSpeed -= slowness				// Apply slownless effect to target 
+				destoryThis();							// Destory Bullet
+				
+			} // End of IF
+			
+			if (target == null || _root.gameOver == true){		// If Target is enemy and the game is over
+				destoryThis();									// Destroy the bullet
+				
+			}// End of IF
+			
+		}// End of Function
 		
-		public function destoryThis():void{
+		public function destoryThis():void				// Remove this function
+		{
+			// Remove object from the stage
 			this.removeEventListener(Event.ENTER_FRAME,eFrame);
 			MovieClip(this.parent).removeChild(this);
-		}
+		}// End of Destorythis fucntion
 		
 		
-	}
+	}// End of class
 
-}
+}// End of 
