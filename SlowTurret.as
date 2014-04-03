@@ -28,7 +28,7 @@ package
 		private var enTarget;									// The target the turret is facing
 		private var cTime:int = 0;								// time since last shot
 		private var reloadTime:int = 24;						//time between shots
-		private var canShoot:Boolean = true;						// can shot or not
+		private var canShoot:Boolean = true;					// can shot or not
 		private var slowness:int = 2;							// what % slowness to minion
 
 
