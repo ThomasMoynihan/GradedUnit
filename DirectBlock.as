@@ -22,7 +22,7 @@ package
 		{
 			directType = type;
 			this.addEventListener(Event.ADDED, beginClass);
-			this.addEventListener(Event.ENTER_FRAME, eFrame);
+			this.addEventListener(Event.ENTER_FRAME, everFrame);
 
 
 			
@@ -102,13 +102,13 @@ package
 
 
 	// Runs every Frame in function being called
-	private function eFrame(e:Event):void
+	private function everFrame(e:Event):void
 	{
 
 		if (_root.gameOver == true)
 		{
 
-				this.removeEventListener(Event.ENTER_FRAME, eFrame);
+				this.removeEventListener(Event.ENTER_FRAME, everFrame);
 				MovieClip(this.parent).removeChild(this);
 
 		}

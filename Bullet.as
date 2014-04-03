@@ -25,7 +25,7 @@ package
 		public function Bullet()
 		{
 			addEventListener(Event.ADDED,beginClass);
-			addEventListener(Event.ENTER_FRAME,eFrame);
+			addEventListener(Event.ENTER_FRAME,everyFrame);
 		}
 		
 		// Only runs once when the function is called
@@ -43,7 +43,7 @@ package
 
 		}
 		// Runs every frame when the function is called 
-		private function eFrame(e:Event):void{
+		private function everyFrame(e:Event):void{
 			
 			var yDist:Number=target.y+12.5 - this.y;	 // Work out the distance from the target 
 			var xDist:Number=target.x+12.5 - this.x;
@@ -72,7 +72,7 @@ package
 		public function destoryThis():void				// Remove this function
 		{
 			// Remove object from the stage
-			this.removeEventListener(Event.ENTER_FRAME,eFrame);
+			this.removeEventListener(Event.ENTER_FRAME,everyFrame);
 			MovieClip(this.parent).removeChild(this);
 		}// End of Destorythis fucntion
 		

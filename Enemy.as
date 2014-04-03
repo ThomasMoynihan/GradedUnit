@@ -30,7 +30,7 @@ package
 		public function Enemy()
 		{
 			this.addEventListener(Event.ADDED, beginClass);
-			this.addEventListener(Event.ENTER_FRAME, eFrameEvents);
+			this.addEventListener(Event.ENTER_FRAME, everFrame);
 		}
 		// Take place ones the class gets called 
 		private function beginClass(e:Event):void
@@ -81,7 +81,7 @@ package
 
 		}
 		// Takes place At every Frame
-		private function eFrameEvents(e:Event):void
+		private function everFrame(e:Event):void
 		{
 
 			this.x +=  xSpeed;
@@ -141,7 +141,7 @@ package
 		public function destroyThis():void
 		{
 			_root.enemiesLeft--;
-			this.removeEventListener(Event.ENTER_FRAME, eFrameEvents);
+			this.removeEventListener(Event.ENTER_FRAME, everFrame);
 			this.parent.removeChild(this);
 		}
 	}

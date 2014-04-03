@@ -36,7 +36,7 @@ package
 		{
 
 			this.addEventListener(Event.ADDED, beginClass);
-			this.addEventListener(Event.ENTER_FRAME, eFrameEvents);
+			this.addEventListener(Event.ENTER_FRAME, everFrame);
 		}
 
 
@@ -59,7 +59,7 @@ package
 
 		}
 		// Runs every Frame the function is active 
-		private function eFrameEvents(e:Event):void
+		private function everFrame(e:Event):void
 		{
 			var distance:Number = range;	// distance to enemy
 			enTarget = null;				// Makes sure the target is emtpy 
@@ -121,7 +121,7 @@ package
 			{
 				// remove from stage
 				
-				this.removeEventListener(Event.ENTER_FRAME, eFrameEvents);
+				this.removeEventListener(Event.ENTER_FRAME, everFrame);
 				MovieClip(this.parent).removeChild(this);
 			} // End of IF
 

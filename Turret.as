@@ -33,7 +33,7 @@ package
 		public function Turret()
 		{
 			this.addEventListener(Event.ADDED, beginClass);
-			this.addEventListener(Event.ENTER_FRAME, eFrameEvents);
+			this.addEventListener(Event.ENTER_FRAME, everFrame);
 
 		}
 
@@ -55,7 +55,7 @@ package
 			this.graphics.endFill();
 
 		}
-		private function eFrameEvents(e:Event):void
+		private function everFrame(e:Event):void
 		{
 
 			var distance:Number = range;	// distance to enemy
@@ -115,7 +115,7 @@ package
 			if (_root.gameOver) // ends if when game finishes
 			{
 				// remove from stage
-				this.removeEventListener(Event.ENTER_FRAME, eFrameEvents);
+				this.removeEventListener(Event.ENTER_FRAME, everFrame);
 				MovieClip(this.parent).removeChild(this);
 				
 			} // End of IF
