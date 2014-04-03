@@ -1,19 +1,30 @@
-﻿package 
-{
+﻿///////////////////////////////////////////////////////////////////////////
+// By: Alan Yeats
+// HNC COMPUTER GAME DEVELOPEMENT 
+// GRADED UNIT
+////////////////////////////////////////////////////////////////////////////
+// Use:		Class Should Create the basic minion with its basic vars 
+////////////////////////////////////////////////////////////////////////////
 
+package 
+{
+	// Importing iteams that are needed
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.*;
 	import flash.display.DisplayObjectContainer;
 
 	public class Enemy extends MovieClip
-	{	var bmionion:firstmionon = new firstmionon();
+	{	
+		// Declaring graphics for minion
+		var bmionion:firstmionon = new firstmionon();
+		
 		private var _root:MovieClip;
-		public var xSpeed:int;// speed going left right
-		public var ySpeed:int;// speed up and odwn
-		public var maxSpeed:int = 4;// max speed
-		public var health:int = 7;
-		public var BMDamange:int = 5;
+		public var xSpeed:int;			// speed going left right
+		public var ySpeed:int;			// speed up and odwn
+		public var maxSpeed:int = 4;	// max speed
+		public var health:int = 7;		// Heath of minion
+		public var BMDamange:int = 5;	// The Damage they will do to the castle
 
 
 		public function Enemy()
@@ -21,12 +32,12 @@
 			this.addEventListener(Event.ADDED, beginClass);
 			this.addEventListener(Event.ENTER_FRAME, eFrameEvents);
 		}
-
+		// Take place ones the class gets called 
 		private function beginClass(e:Event):void
 		{
 			_root = MovieClip(root);
 
-			//going back to start direction
+			// Finding Start Possion 
 			if (_root.startDir == 'UP')
 			{// start pos up and code for it
 				this.y = 300;
@@ -63,23 +74,21 @@
 
 			}
 
-			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			////// NEEDS TO BE OPTIMIZED PROBLEMS MAKING GAME LAG. CRITAL BUG
-			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			
+			// Adds Minions to the stage
 			addChild(bmionion);
 
-			//this.graphics.beginFill(0xFF0000);
-//			this.graphics.drawCircle(12.5,12.5,5);
-//			this.graphics.endFill();
+
 
 		}
+		// Takes place At every Frame
 		private function eFrameEvents(e:Event):void
 		{
 
 			this.x +=  xSpeed;
 			this.y +=  ySpeed;
-
+			
+			// At finish point destory the minion and remove health from the castle 
+			
 			if (_root.finDir == 'UP')
 			{
 				if (this.y <= -25)
@@ -114,10 +123,13 @@
 				}
 			}
 
+			// If Game over then destory the minion
 			if (_root.gameOver)
 			{
 				destroyThis();
 			}
+			
+			// Remove all remaining minions if the castle has been destoryed
 			if (health <= 0)
 			{
 				destroyThis();
@@ -125,7 +137,7 @@
 		}
 
 
-
+		// Removing functions and object from the scene 
 		public function destroyThis():void
 		{
 			_root.enemiesLeft--;
@@ -133,7 +145,7 @@
 			this.parent.removeChild(this);
 		}
 	}
-	// destoy this;
+	
 
 
 }
