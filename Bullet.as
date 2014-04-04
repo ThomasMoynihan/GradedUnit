@@ -62,7 +62,7 @@ package
 				
 			} // End of IF
 			
-			if (target == null || _root.gameOver == true){		// If Target is enemy and the game is over
+			if (target == null || _root.gameOver == true){		// If there is no target and the game is over
 				destoryThis();									// Destroy the bullet
 				
 			}// End of IF

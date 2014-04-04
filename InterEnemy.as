@@ -3,7 +3,7 @@
 // HNC COMPUTER GAME DEVELOPEMENT 
 // GRADED UNIT
 ////////////////////////////////////////////////////////////////////////////
-// Use:		Class Should Create the basic minion with its basic vars 
+// Use:		Class Should Create the intermediate minion with its adverage vars 
 ////////////////////////////////////////////////////////////////////////////
 
 package 
@@ -14,20 +14,20 @@ package
 	import flash.events.*;
 	import flash.display.DisplayObjectContainer;
 
-	public class Enemy extends MovieClip
+	public class InterEnemy extends MovieClip
 	{	
-		// Declaring graphics for minion
-		var bmionion:firstmionon = new firstmionon();
+		
+		
 		
 		private var _root:MovieClip;
 		public var xSpeed:int;			// speed going left right
 		public var ySpeed:int;			// speed up and odwn
-		public var maxSpeed:int = 4;	// max speed
-		public var health:int = 7;		// Heath of minion
-		public var BMDamange:int = 5;	// The Damage they will do to the castle
+		public var maxSpeed:int = 4.5;	// max speed
+		public var health:int = 8;		// Heath of minion
+		public var BMDamange:int = 6;	// The Damage they will do to the castle
 
 
-		public function Enemy()
+		public function InterEnemy()
 		{
 			this.addEventListener(Event.ADDED, beginClass);
 			this.addEventListener(Event.ENTER_FRAME, everFrame);
@@ -75,9 +75,9 @@ package
 			}
 
 			// Adds Minions to the stage
-			addChild(bmionion);
-
-
+		 	graphics.beginFill(0x00FF00)
+			this.graphics.drawCircle(12.5,12.5,7);
+			this.graphics.endFill();
 
 		}
 		// Takes place At every Frame
