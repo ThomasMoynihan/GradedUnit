@@ -14,8 +14,7 @@ package
 
 	public class DirectBlock extends MovieClip
 	{	
-		private var monCool:int = 10;		// Set the monCool
-		private var cooldown:int = 15;		// Set a cooldown for money
+
 		private var _root:MovieClip;		
 		private var directType:String;		// Direction type
 
@@ -31,25 +30,7 @@ package
 			this.y = yVal;				 // setting the Y coords to Yvalue
  		}
 		
-		
-		private function Cooldown():void
-		{
-			if( monCool == cooldown)
-			{
-				_root.money +=1;
-				_root.createText();
-			}
-			
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
+				
 		// Runs only when the function is called
 		private function beginClass(e:Event):void
 		{
@@ -99,7 +80,7 @@ package
 			{
 														//then define the finDir based on it's coordinates
 				if (this.x == 0)
-				{	;
+				{	
 					_root.finDir = 'LEFT';
 				}
 				else if (this.y == 0)
@@ -113,7 +94,7 @@ package
 				else if (this.y == 275)
 				{
 					_root.finDir = 'DOWN';
-				}				else
+				}else
 				{
 				}
 			}//this level won't work if not any of these values
@@ -124,14 +105,14 @@ package
 	// Runs every Frame in function being called
 	private function everFrame(e:Event):void
 	{
-			Cooldown()
-			_root.createText();
+			
+			
 			
 		if (_root.gameOver == true)
 		{
 
-				this.removeEventListener(Event.ENTER_FRAME, everFrame);
-				MovieClip(this.parent).removeChild(this);
+				this.removeEventListener(Event.ENTER_FRAME, everFrame);				// Stop repeating every Frame
+				MovieClip(this.parent).removeChild(this);							// Remove all from stage
 
 		}
 
@@ -148,29 +129,28 @@ package
 					if (this.x >= enTarget.x - enTarget.width*.5 && this.x <= enTarget.x + enTarget.width*.5
 					&& this.y >= enTarget.y - enTarget.height*.5 && this.y <= enTarget.y + enTarget.height*.5)
 					{
-				
+						trace(enTarget.maxSpeed);
 						if (directType == 'UP')							// IF the Direcion is UP
 						{
-							monCool += 1;								// Adds to the monCool  
 							enTarget.xSpeed = 0;						// Sets X Speed
-							enTarget.ySpeed =  -  enTarget.maxSpeed;	// Changes Y speed 
+							enTarget.ySpeed =-  enTarget.maxSpeed;		// Changes Y speed 
 							
 						}else if (directType == 'RIGHT')				// IF the Direcion is RIGHT
 						{
-							monCool += 1;								// Adds to the monCool 
+							
 							enTarget.xSpeed = enTarget.maxSpeed;		// Change X Speed
 							enTarget.ySpeed = 0;						// Sets Y Speed
 							
 						}else if (directType == 'DOWN')					// IF the Direcion is DOWN
 						{
-							monCool += 1;								// Adds to the monCool 
+							
 							enTarget.xSpeed = 0;						// Sets X Speed
 							enTarget.ySpeed = enTarget.maxSpeed;		// Changes Y Speed
 							
 						}else if (directType == 'LEFT')					// IF the Direcion is LEFT
 						{
-							monCool += 1;								// Adds to the monCool 
-							enTarget.xSpeed = enTarget.maxSpeed;		// Changes X Speed
+							
+							enTarget.xSpeed =- enTarget.maxSpeed;		// Changes X Speed
 							enTarget.ySpeed = 0;						// Sets Y Speed
 							
 							

@@ -3,27 +3,25 @@
 // HNC COMPUTER GAME DEVELOPEMENT 
 // GRADED UNIT
 ////////////////////////////////////////////////////////////////////////////
-//	Use: 		To Create the bullets that attack the minions
+//	Use: 		To Create the bullets that slow the minions
 ////////////////////////////////////////////////////////////////////////////
-package 
-{
+package  {
+	
 	// Imports
 	import flash.display.MovieClip;
 	import flash.events.*;
 
-	public class Bullet extends MovieClip
-	{
+	public class SBullet extends MovieClip {
+
 		private var _root:*;			
 		public var target;					// Target of bullet
 		public var damage:int;				// Damage of the bullet
 		public var slowness:int;			// Slowness effect of the bullet
 		private var xSpeed:Number;			// Horrizontal Speed
 		private var ySpeed:Number;			// Vertical Speed
-		private var maxSpeed:Number = 4;	// Maxium Speed bullet can travel
+		private var maxSpeed:Number = 5;	// Maxium Speed bullet can travel
 
-
-		public function Bullet()
-		{
+		public function SBullet() {
 			addEventListener(Event.ADDED,beginClass);
 			addEventListener(Event.ENTER_FRAME,everyFrame);
 		}
@@ -37,7 +35,7 @@ package
 			// Likely to be change? Will add the graphics when completed
 			// Sends Bullet to the stage
 			
-			this.graphics.beginFill(0xFFFFFF);
+			this.graphics.beginFill(0x66FFFF);
 			this.graphics.drawCircle(0,0,2);
 			this.graphics.endFill();
 
@@ -56,7 +54,8 @@ package
 			this.y +=  ySpeed;			
 			
 			if(this.hitTestObject(target)){				// Use hit test to work out of hit the target 
-				target.health -= damage;				// Remove damage of the bullet from the heath of the target		
+				target.health -= damage;				// Remove damage of the bullet from the heath of the target			
+				target.maxSpeed = (target.maxSpeed + 1) / 2; // Halfs the speed of minions at each bullet but adds one so have a minium of speed of 1
 				destoryThis();							// Destory Bullet
 				
 			} // End of IF

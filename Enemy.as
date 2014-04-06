@@ -60,7 +60,7 @@ package
 			{														// start pos left and code for it
 				this.x = 550;
 				this.y = _root.startCoord;
-				this.xSpeed =  -  maxSpeed;
+				this.xSpeed =-  maxSpeed;
 				this.ySpeed = 0;
 
 

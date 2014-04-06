@@ -87,10 +87,11 @@ package
 				if (canShoot)
 				{
 					canShoot = false; 					// Reset canShoot 
-					var pewpew:Bullet = new Bullet();	// Create a new bullet object
+					var pewpew:SBullet = new SBullet();	// Create a new bullet object
 					pewpew.x = this.x;					// Setting the X Coords for the bullet to curret X
-					pewpew.y = this.y					// Setting the Y Coords for the bullet to curret Y
+					pewpew.y = this.y;					// Setting the Y Coords for the bullet to curret Y
 
+					
 					pewpew.target = enTarget;			// Set the target to the bullets target
 					pewpew.damage = damage;				// Setting the damage to the damange of the bullet
 					pewpew.slowness = slowness;			// Setting the slowness to the bullet slownless effect
