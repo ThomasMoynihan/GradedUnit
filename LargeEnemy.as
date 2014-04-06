@@ -3,35 +3,35 @@
 // HNC COMPUTER GAME DEVELOPEMENT 
 // GRADED UNIT
 ////////////////////////////////////////////////////////////////////////////
-// Use:		Class Should Create the intermediate minion with its adverage vars 
+// Use:		Class Should Create the Large minion with its big vars 
 ////////////////////////////////////////////////////////////////////////////
-
-package 
-{
+package  {
+	
+	
 	// Importing iteams that are needed
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.*;
 	import flash.display.DisplayObjectContainer;
 
-	public class InterEnemy extends MovieClip
-	{	
+
+	public class LargeEnemy extends MovieClip {
 		
-		
-		
+		// Varibles
 		private var _root:MovieClip;
 		public var xSpeed:int;			// speed going left right
 		public var ySpeed:int;			// speed up and odwn
-		public var maxSpeed:int = 3.5;	// max speed
-		public var health:int = 8;		// Heath of minion
-		public var BMDamange:int = 15;	// The Damage they will do to the castle
+		public var maxSpeed:int = 2;	// max speed
+		public var health:int = 10;		// Heath of minion
+		public var BMDamange:int = 25;	// The Damage they will do to the castle
 
 
-		public function InterEnemy()
-		{
+
+		public function LargeEnemy() {
 			this.addEventListener(Event.ADDED, beginClass);
 			this.addEventListener(Event.ENTER_FRAME, everFrame);
 		}
+		
 		
 		private function beginClass(e:Event):void				// Take place ones the class gets called 
 		{
@@ -76,8 +76,8 @@ package
 
 			
 			
-		 	graphics.beginFill(0x00FF00)
-			this.graphics.drawCircle(12.5,12.5,7);							// Adds Minions to the stage
+		 	graphics.beginFill(0xFF0000)
+			this.graphics.drawCircle(12.5,12.5,9);							// Adds Minions to the stage
 			this.graphics.endFill();
 												
 
@@ -149,6 +149,7 @@ package
 			
 			this.removeEventListener(Event.ENTER_FRAME, everFrame);			
 			this.parent.removeChild(this);									// Remove minions from stage
+			
 		} // end of function
 	}// end of class
 }// end of package

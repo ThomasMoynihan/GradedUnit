@@ -3,35 +3,33 @@
 // HNC COMPUTER GAME DEVELOPEMENT 
 // GRADED UNIT
 ////////////////////////////////////////////////////////////////////////////
-// Use:		Class Should Create the intermediate minion with its adverage vars 
+// Use:		Class Should Create the Tank minion with its huge vars 
 ////////////////////////////////////////////////////////////////////////////
-
-package 
-{
+package  {
+	
 	// Importing iteams that are needed
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.*;
 	import flash.display.DisplayObjectContainer;
+	import flashx.textLayout.formats.Float;
 
-	public class InterEnemy extends MovieClip
-	{	
+	public class TankEnemy extends MovieClip {
 		
-		
-		
+		// Varibles
 		private var _root:MovieClip;
 		public var xSpeed:int;			// speed going left right
 		public var ySpeed:int;			// speed up and odwn
-		public var maxSpeed:int = 3.5;	// max speed
-		public var health:int = 8;		// Heath of minion
-		public var BMDamange:int = 15;	// The Damage they will do to the castle
+		public var maxSpeed:Number = 1;	// max speed
+		public var health:int = 25;		// Heath of minion
+		public var BMDamange:int = 50;	// The Damage they will do to the castle
 
 
-		public function InterEnemy()
-		{
-			this.addEventListener(Event.ADDED, beginClass);
+		public function TankEnemy() {
+		this.addEventListener(Event.ADDED, beginClass);
 			this.addEventListener(Event.ENTER_FRAME, everFrame);
 		}
+		
 		
 		private function beginClass(e:Event):void				// Take place ones the class gets called 
 		{
@@ -76,8 +74,8 @@ package
 
 			
 			
-		 	graphics.beginFill(0x00FF00)
-			this.graphics.drawCircle(12.5,12.5,7);							// Adds Minions to the stage
+		 	graphics.beginFill(0xD4D4D4)
+			this.graphics.drawCircle(12.5,12.5,12);							// Adds Minions to the stage
 			this.graphics.endFill();
 												
 
@@ -149,6 +147,7 @@ package
 			
 			this.removeEventListener(Event.ENTER_FRAME, everFrame);			
 			this.parent.removeChild(this);									// Remove minions from stage
+			
 		} // end of function
 	}// end of class
 }// end of package
