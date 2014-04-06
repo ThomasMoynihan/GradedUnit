@@ -16,15 +16,15 @@ package
 
 	public class Enemy extends MovieClip
 	{	
-		// Declaring graphics for minion
-		var bmionion:firstmionon = new firstmionon();
+		
+		var bmionion:firstmionon = new firstmionon();		// Declaring graphics for minion
 		
 		private var _root:MovieClip;
 		public var xSpeed:int;			// speed going left right
 		public var ySpeed:int;			// speed up and odwn
 		public var maxSpeed:int = 4;	// max speed
 		public var health:int = 7;		// Heath of minion
-		public var BMDamange:int = 5;	// The Damage they will do to the castle
+		public var BMDamange:int = 10;	// The Damage they will do to the castle
 
 
 		public function Enemy()
@@ -32,14 +32,14 @@ package
 			this.addEventListener(Event.ADDED, beginClass);
 			this.addEventListener(Event.ENTER_FRAME, everFrame);
 		}
-		// Take place ones the class gets called 
-		private function beginClass(e:Event):void
+		
+		private function beginClass(e:Event):void				// Take place ones the class gets called 
 		{
 			_root = MovieClip(root);
-
-			// Finding Start Possion 
-			if (_root.startDir == 'UP')
-			{// start pos up and code for it
+																
+			
+			if (_root.startDir == 'UP')							// Finding Start Possion 
+			{													// start pos up and code for it
 				this.y = 300;
 				this.x = _root.startCoord;
 				this.xSpeed = 0;
@@ -48,7 +48,7 @@ package
 
 			}
 			else if (_root.startDir == 'DOWN')
-			{// start pos down and code for it
+			{													// start pos down and code for it
 				this.y = -25;
 				this.x = _root.startCoord;
 				this.xSpeed = 0;
@@ -57,7 +57,7 @@ package
 
 			}
 			else if (_root.startDir == 'LEFT')
-			{// start pos up and code for it
+			{														// start pos left and code for it
 				this.x = 550;
 				this.y = _root.startCoord;
 				this.xSpeed =  -  maxSpeed;
@@ -66,7 +66,7 @@ package
 
 			}
 			else if (_root.startDir == 'RIGHT')
-			{// start pos up and code for it
+			{															// start pos right and code for it
 				this.x = -25;
 				this.y = _root.startCoord;
 				this.xSpeed = maxSpeed;
@@ -74,27 +74,29 @@ package
 
 			}
 
-			// Adds Minions to the stage
-			addChild(bmionion);
+			
+			addChild(bmionion);												// Adds Minions to the stage
 
 
 
 		}
-		// Takes place At every Frame
-		private function everFrame(e:Event):void
+		
+		private function everFrame(e:Event):void							// Takes place At every Frame
 		{
 
-			this.x +=  xSpeed;
-			this.y +=  ySpeed;
+			this.x +=  xSpeed;												// Set Hirizontal Speed
+			this.y +=  ySpeed;												// Set Vertical Speed	
 			
 			// At finish point destory the minion and remove health from the castle 
 			
 			if (_root.finDir == 'UP')
 			{
+				
 				if (this.y <= -25)
 				{
-					destroyThis();
-					_root.castleH =  -  BMDamange;
+					_root.castleH -=  BMDamange;							// Take Health off the castle
+					destroyThis();											// Remove minion from stage
+					
 
 				}
 			}
@@ -102,47 +104,47 @@ package
 			{
 				if (this.x >= 550)
 				{
-					destroyThis();
-					_root.castleH =  -  BMDamange;
+					_root.castleH -=  BMDamange;							// Take Health off the castle
+					destroyThis();											// Remove minion from stage
+					
 				}
 			}
 			else if (_root.finDir == 'DOWN')
 			{
 				if (this.y >= 300)
 				{
-					_root.castleH =  -  BMDamange;
-					destroyThis();
+					_root.castleH -=   BMDamange;							// Take Health off the castle
+					destroyThis();											// Remove minion from stage
 				}
 			}
 			else if (_root.startDir == 'LEFT')
 			{
 				if (this.x <= 0)
-				{
-					_root.castleH =  -  BMDamange;
-					destroyThis();
+				{_root.castleH -=  BMDamange;								// Take Health off the castle
+					destroyThis();											// Remove minion from stage
 				}
 			}
 
-			// If Game over then destory the minion
+																			// If Game over then destory the minion
 			if (_root.gameOver)
 			{
-				destroyThis();
+				destroyThis();												// Remove minion from stage
 			}
 			
-			// Remove all remaining minions if the castle has been destoryed
+			
 			if (health <= 0)
 			{
-				destroyThis();
+				destroyThis();												// Remove all remaining minions if the castle has been destoryed
 			}
 		}
 
 
-		// Removing functions and object from the scene 
-		public function destroyThis():void
+		
+		public function destroyThis():void									// Removing functions and object from the scene 
 		{
-			_root.enemiesLeft--;
-			this.removeEventListener(Event.ENTER_FRAME, everFrame);
-			this.parent.removeChild(this);
+			
+			this.removeEventListener(Event.ENTER_FRAME, everFrame);			
+			this.parent.removeChild(this);									// Remove minions from stage
 		} // end of function
 	}// end of class
 }// end of package
