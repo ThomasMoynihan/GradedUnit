@@ -14,7 +14,8 @@ package
 
 	public class DirectBlock extends MovieClip
 	{	
-		private var cooldown:int = 10;		// Set the cooldown
+		private var monCool:int = 10;		// Set the monCool
+		private var cooldown:int = 15;		// Set a cooldown for money
 		private var _root:MovieClip;		
 		private var directType:String;		// Direction type
 
@@ -29,6 +30,26 @@ package
 			this.x = xVal;				 // setting the X coords to Xvalue
 			this.y = yVal;				 // setting the Y coords to Yvalue
  		}
+		
+		
+		private function Cooldown():void
+		{
+			if( monCool == cooldown)
+			{
+				_root.money +=1;
+				_root.createText();
+			}
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// Runs only when the function is called
 		private function beginClass(e:Event):void
 		{
@@ -92,8 +113,7 @@ package
 				else if (this.y == 275)
 				{
 					_root.finDir = 'DOWN';
-				}
-				else
+				}				else
 				{
 				}
 			}//this level won't work if not any of these values
@@ -104,7 +124,9 @@ package
 	// Runs every Frame in function being called
 	private function everFrame(e:Event):void
 	{
-
+			Cooldown()
+			_root.createText();
+			
 		if (_root.gameOver == true)
 		{
 
@@ -119,6 +141,7 @@ package
 
 				for (var i:int = 0; i<_root.enemyHolder.numChildren; i++) // Loop
 				{
+					
 					var enTarget = _root.enemyHolder.getChildAt(i); //  create the traget from the enemy holder
 			
 			
@@ -128,25 +151,25 @@ package
 				
 						if (directType == 'UP')							// IF the Direcion is UP
 						{
-							_root.money += 1;							// Adds money 
+							monCool += 1;								// Adds to the monCool  
 							enTarget.xSpeed = 0;						// Sets X Speed
 							enTarget.ySpeed =  -  enTarget.maxSpeed;	// Changes Y speed 
 							
 						}else if (directType == 'RIGHT')				// IF the Direcion is RIGHT
 						{
-							_root.money += 1;							// Adds money 
+							monCool += 1;								// Adds to the monCool 
 							enTarget.xSpeed = enTarget.maxSpeed;		// Change X Speed
 							enTarget.ySpeed = 0;						// Sets Y Speed
 							
 						}else if (directType == 'DOWN')					// IF the Direcion is DOWN
 						{
-							_root.money += 1;							// Adds money 
+							monCool += 1;								// Adds to the monCool 
 							enTarget.xSpeed = 0;						// Sets X Speed
 							enTarget.ySpeed = enTarget.maxSpeed;		// Changes Y Speed
 							
 						}else if (directType == 'LEFT')					// IF the Direcion is LEFT
 						{
-							_root.money += 1;							// Adds money
+							monCool += 1;								// Adds to the monCool 
 							enTarget.xSpeed = enTarget.maxSpeed;		// Changes X Speed
 							enTarget.ySpeed = 0;						// Sets Y Speed
 							
