@@ -129,7 +129,7 @@ package
 					if (this.x >= enTarget.x - enTarget.width*.5 && this.x <= enTarget.x + enTarget.width*.5
 					&& this.y >= enTarget.y - enTarget.height*.5 && this.y <= enTarget.y + enTarget.height*.5)
 					{
-						trace(enTarget.maxSpeed);
+						
 						if (directType == 'UP')							// IF the Direcion is UP
 						{
 							enTarget.xSpeed = 0;						// Sets X Speed
