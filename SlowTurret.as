@@ -81,7 +81,7 @@ package
 			if (enTarget!= null)
 			{
 
-				this.rotation = Math.atan2((enTarget.y-y), enTarget.x-x)/Math.PI*180 - 90;
+
 				
 				// checking the turret can shot
 				if (canShoot)
