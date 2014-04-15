@@ -94,8 +94,8 @@ package
 				
 				if (this.y <= -25)
 				{
+					_root.money += 100;										// Adds Money to players total.
 					_root.castleH -=  BMDamange;							// Take Health off the castle
-					_root.money += 100;
 					destroyThis();											// Remove minion from stage
 					
 
@@ -105,7 +105,7 @@ package
 			{
 				if (this.x >= 550)
 				{
-					_root.money += 100;
+					_root.money += 100;										// Adds Money to players total.
 					_root.castleH -=  BMDamange;							// Take Health off the castle
 					destroyThis();											// Remove minion from stage
 					
@@ -115,7 +115,7 @@ package
 			{
 				if (this.y >= 300)
 				{
-					_root.money += 100;
+					_root.money += 100;										// Adds Money to players total.	
 					_root.castleH -=   BMDamange;							// Take Health off the castle
 					destroyThis();											// Remove minion from stage
 				}
@@ -124,9 +124,10 @@ package
 			{
 				if (this.x <= 0)
 				{
-					_root.castleH -=  BMDamange;								// Take Health off the castle
+					_root.money += 100;										// Adds Money to players total.					
+					_root.castleH -=  BMDamange;							// Take Health off the castle
 					destroyThis();											// Remove minion from stage
-					_root.money += 100;
+					
 				}
 			}
 

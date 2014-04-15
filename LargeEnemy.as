@@ -94,41 +94,45 @@ package  {
 			// At finish point destory the minion and remove health from the castle 
 			
 			if (_root.finDir == 'UP')
-			{
-				
+			{			
+			
 				if (this.y <= -25)
-				{
-					_root.castleH -=  BMDamange;							// Take Health off the castle
-					destroyThis();											// Remove minion from stage
+					{
+						_root.money += 30;										// Adds Money to players total.
+						_root.castleH -=  BMDamange;							// Take Health off the castle
+						destroyThis();											// Remove minion from stage
 					
 
-				}
-			}
-			else if (_root.finDir == 'RIGHT')
-			{
-				if (this.x >= 550)
+					}
+				}else if (_root.finDir == 'RIGHT')
 				{
-					_root.castleH -=  BMDamange;							// Take Health off the castle
-					destroyThis();											// Remove minion from stage
 					
-				}
-			}
-			else if (_root.finDir == 'DOWN')
-			{
-				if (this.y >= 300)
+					if (this.x >= 550)
+					{
+						_root.money += 30;										// Adds Money to players total.
+						_root.castleH -=  BMDamange;							// Take Health off the castle
+						destroyThis();											// Remove minion from stage
+					
+					}
+				}else if (_root.finDir == 'DOWN')
 				{
-					_root.castleH -=   BMDamange;							// Take Health off the castle
-					destroyThis();											// Remove minion from stage
+					if (this.y >= 300)
+					{
+						_root.money += 30;										// Adds Money to players total.	
+						_root.castleH -=   BMDamange;							// Take Health off the castle
+						destroyThis();											// Remove minion from stage
+					}
+				}else if (_root.finDir == 'LEFT')
+				{
+					if (this.x <= 0)
+					{
+						_root.money += 30;										// Adds Money to players total.					
+						_root.castleH -=  BMDamange;							// Take Health off the castle
+						destroyThis();											// Remove minion from stage
+					
+					}
 				}
-			}
-			else if (_root.startDir == 'LEFT')
-			{
-				if (this.x <= 0)
-				{_root.castleH -=  BMDamange;								// Take Health off the castle
-					destroyThis();											// Remove minion from stage
-				}
-			}
-
+	
 																			// If Game over then destory the minion
 			if (_root.gameOver)
 			{
@@ -141,7 +145,6 @@ package  {
 				destroyThis();												// Remove all remaining minions if the castle has been destoryed
 			}
 		}
-
 
 		
 		public function destroyThis():void									// Removing functions and object from the scene 
