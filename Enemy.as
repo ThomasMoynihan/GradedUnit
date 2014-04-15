@@ -17,7 +17,7 @@ package
 	public class Enemy extends MovieClip
 	{	
 		
-		var bmionion:firstmionon = new firstmionon();		// Declaring graphics for minion
+		var bmionion:basic_M = new basic_M();		// Declaring graphics for minion
 		
 		private var _root:MovieClip;
 		public var xSpeed:int;			// speed going left right
@@ -85,7 +85,7 @@ package
 		{
 
 			this.x +=  xSpeed;												// Set Hirizontal Speed
-			this.y +=  ySpeed;												// Set Vertical Speed	
+			this.y +=  ySpeed/2;												// Set Vertical Speed	
 			
 			// At finish point destory the minion and remove health from the castle 
 			
