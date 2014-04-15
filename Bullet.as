@@ -19,7 +19,7 @@ package
 		public var slowness:int;			// Slowness effect of the bullet
 		private var xSpeed:Number;			// Horrizontal Speed
 		private var ySpeed:Number;			// Vertical Speed
-		private var maxSpeed:Number = 4;	// Maxium Speed bullet can travel
+		private var maxSpeed:Number = 7;	// Maxium Speed bullet can travel
 
 
 		public function Bullet()

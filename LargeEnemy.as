@@ -21,8 +21,8 @@ package  {
 		private var _root:MovieClip;
 		public var xSpeed:int;			// speed going left right
 		public var ySpeed:int;			// speed up and odwn
-		public var maxSpeed:int = 2;	// max speed
-		public var health:int = 10;		// Heath of minion
+		public var maxSpeed:int = 3;	// max speed
+		public var health:int = 18;		// Heath of minion
 		public var BMDamange:int = 25;	// The Damage they will do to the castle
 
 

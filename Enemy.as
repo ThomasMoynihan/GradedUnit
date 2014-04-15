@@ -22,9 +22,9 @@ package
 		private var _root:MovieClip;
 		public var xSpeed:int;			// speed going left right
 		public var ySpeed:int;			// speed up and odwn
-		public var maxSpeed:int = 4;	// max speed
+		public var maxSpeed:int = 5;	// max speed
 		public var health:int = 7;		// Heath of minion
-		public var BMDamange:int = 10;	// The Damage they will do to the castle
+		public var BMDamange:int = 1;	// The Damage they will do to the castle
 
 
 		public function Enemy()
@@ -95,6 +95,7 @@ package
 				if (this.y <= -25)
 				{
 					_root.castleH -=  BMDamange;							// Take Health off the castle
+					_root.money += 100;
 					destroyThis();											// Remove minion from stage
 					
 
@@ -104,6 +105,7 @@ package
 			{
 				if (this.x >= 550)
 				{
+					_root.money += 100;
 					_root.castleH -=  BMDamange;							// Take Health off the castle
 					destroyThis();											// Remove minion from stage
 					
@@ -113,15 +115,18 @@ package
 			{
 				if (this.y >= 300)
 				{
+					_root.money += 100;
 					_root.castleH -=   BMDamange;							// Take Health off the castle
 					destroyThis();											// Remove minion from stage
 				}
 			}
-			else if (_root.startDir == 'LEFT')
+			else if (_root.finDir == 'LEFT')
 			{
 				if (this.x <= 0)
-				{_root.castleH -=  BMDamange;								// Take Health off the castle
+				{
+					_root.castleH -=  BMDamange;								// Take Health off the castle
 					destroyThis();											// Remove minion from stage
+					_root.money += 100;
 				}
 			}
 

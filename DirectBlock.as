@@ -1,4 +1,4 @@
-﻿///////////////////////////////////////////////////////////////////////////
+﻿	///////////////////////////////////////////////////////////////////////////
 // By: Alan Yeats
 // HNC COMPUTER GAME DEVELOPEMENT 
 // GRADED UNIT
@@ -134,6 +134,8 @@ package
 						{
 							enTarget.xSpeed = 0;						// Sets X Speed
 							enTarget.ySpeed =-  enTarget.maxSpeed;		// Changes Y speed 
+							enTarget.x +=19;
+							enTarget.rotation = 270;
 							
 						}else if (directType == 'RIGHT')				// IF the Direcion is RIGHT
 						{

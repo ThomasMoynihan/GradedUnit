@@ -21,7 +21,7 @@ package
 
 		private var angle:Number;								// the angle
 		private var radiansToDegrees:Number = 180 / Math.PI;	// for rotation
-		private var damage:int = 1;								// damange of bullet - Made very low to be able to 
+		private var damage:int = 2;								// damange of bullet - Made very low to be able to 
 		private var range:int = 100;							// shooting range
 		private var enTarget;									// The target the turret is facing
 		private var cTime:int = 0;								// time since last shot
