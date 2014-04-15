@@ -40,7 +40,7 @@ package
 			
 			if (_root.startDir == 'UP')							// Finding Start Possion 
 			{													// start pos up and code for it
-				this.y = 300;
+				//this.y = 300;
 				this.x = _root.startCoord;
 				this.xSpeed = 0;
 				this.ySpeed =  -  maxSpeed;
@@ -49,7 +49,7 @@ package
 			}
 			else if (_root.startDir == 'DOWN')
 			{													// start pos down and code for it
-				this.y = -25;
+				//this.y = -25;
 				this.x = _root.startCoord;
 				this.xSpeed = 0;
 				this.ySpeed = maxSpeed;
@@ -58,23 +58,24 @@ package
 			}
 			else if (_root.startDir == 'LEFT')
 			{														// start pos left and code for it
-				this.x = 550;
+				//this.x = 550;
 				this.y = _root.startCoord;
-				this.xSpeed =-  maxSpeed;
+				this.xSpeed = -  maxSpeed;
 				this.ySpeed = 0;
 
 
 			}
 			else if (_root.startDir == 'RIGHT')
 			{															// start pos right and code for it
-				this.x = -25;
+				//this.x = -25;
 				this.y = _root.startCoord;
 				this.xSpeed = maxSpeed;
 				this.ySpeed = 0;
 
 			}
 
-			
+			bmionion.x = 25;
+			bmionion.y = 17.5;
 			addChild(bmionion);												// Adds Minions to the stage
 
 
@@ -85,7 +86,7 @@ package
 		{
 
 			this.x +=  xSpeed;												// Set Hirizontal Speed
-			this.y +=  ySpeed/2;												// Set Vertical Speed	
+			this.y +=  ySpeed;												// Set Vertical Speed	
 			
 			// At finish point destory the minion and remove health from the castle 
 			

@@ -131,27 +131,28 @@ package
 					{
 						
 						if (directType == 'UP')							// IF the Direcion is UP
-						{
+						{	
+							enTarget.scaleY =  1;
 							enTarget.xSpeed = 0;						// Sets X Speed
 							enTarget.ySpeed =-  enTarget.maxSpeed;		// Changes Y speed 
 							
-							//enTarget.rotation = 270;
+							
 							
 						}else if (directType == 'RIGHT')				// IF the Direcion is RIGHT
 						{
-							
+							enTarget.scaleX = 1;
 							enTarget.xSpeed = enTarget.maxSpeed;		// Change X Speed
 							enTarget.ySpeed = 0;						// Sets Y Speed
 							
 						}else if (directType == 'DOWN')					// IF the Direcion is DOWN
 						{
-							
-							enTarget.xSpeed = 0;						// Sets X Speed
+							enTarget.scaleY *= - 1;
+							enTarget.xSpeed = 0;						// Setsq X Speed
 							enTarget.ySpeed = enTarget.maxSpeed;		// Changes Y Speed
 							
 						}else if (directType == 'LEFT')					// IF the Direcion is LEFT
 						{
-							
+							enTarget.scaleX *= - 1;
 							enTarget.xSpeed =- enTarget.maxSpeed;		// Changes X Speed
 							enTarget.ySpeed = 0;						// Sets Y Speed
 							
