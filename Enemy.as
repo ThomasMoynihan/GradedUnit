@@ -38,9 +38,10 @@ package
 			_root = MovieClip(root);
 																
 			
+			
 			if (_root.startDir == 'UP')							// Finding Start Possion 
 			{													// start pos up and code for it
-				//this.y = 300;
+				this.y = 300;
 				this.x = _root.startCoord;
 				this.xSpeed = 0;
 				this.ySpeed =  -  maxSpeed;
@@ -49,7 +50,7 @@ package
 			}
 			else if (_root.startDir == 'DOWN')
 			{													// start pos down and code for it
-				//this.y = -25;
+				this.y = -25;
 				this.x = _root.startCoord;
 				this.xSpeed = 0;
 				this.ySpeed = maxSpeed;
@@ -58,7 +59,7 @@ package
 			}
 			else if (_root.startDir == 'LEFT')
 			{														// start pos left and code for it
-				//this.x = 550;
+				this.x = 550;
 				this.y = _root.startCoord;
 				this.xSpeed = -  maxSpeed;
 				this.ySpeed = 0;
@@ -67,7 +68,7 @@ package
 			}
 			else if (_root.startDir == 'RIGHT')
 			{															// start pos right and code for it
-				//this.x = -25;
+				this.x = -25;
 				this.y = _root.startCoord;
 				this.xSpeed = maxSpeed;
 				this.ySpeed = 0;
@@ -143,13 +144,18 @@ package
 			{
 				destroyThis();												// Remove all remaining minions if the castle has been destoryed
 			}
+			
+			if (_root.levelWin == true)
+			{
+				destroyThis();
+			}
 		}
 
 
 		
 		public function destroyThis():void									// Removing functions and object from the scene 
 		{
-			
+			_root.minionOnStage --;
 			this.removeEventListener(Event.ENTER_FRAME, everFrame);			
 			this.parent.removeChild(this);									// Remove minions from stage
 		} // end of function
