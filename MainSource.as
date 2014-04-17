@@ -105,7 +105,8 @@ var minBNameTxt:TextField = new TextField;			// Creating Text Field For name of 
 var minINameTxt:TextField = new TextField;			// Creating Text Field For name of Intermdiate minions
 var minLNameTxt:TextField = new TextField;			// Creating Text Field For name of Large minions
 var minTNameTxt:TextField = new TextField;			// Creating Text Field For name of Tank minions
-	
+var minGNameTxt:TextField = new TextField;          		// Creating Text Field For name of Giant minions
+
 
 var headerHolder:Sprite = new Sprite				// Creates the header holder 
 
@@ -491,15 +492,15 @@ function lowerThird():void								// Lower Third Function
 														// This draws the lower area and its graphics
 {
 
-	this.graphics.beginFill(0x464646);				
+	this.graphics.beginFill(0x1A1A1A);				
 	this.graphics.drawRect(0,400,550,200);				// Create Outer Box
 
-	this.graphics.beginFill(0x999999);
-	this.graphics.drawRoundRect(10,410,530,180,10,10);	// inner Large box
+	this.graphics.beginFill(0xC1DCE6);
+	this.graphics.drawRoundRect(10,410,530,180,5,5);	// inner Large box
 	
 		
 	minBNameTxt.x = 40;									// Lable X cords
-	minBNameTxt.y = 405;								// Lable Y cords
+	minBNameTxt.y = 406;								// Lable Y cords
 	minBNameTxt.text = "Basic Minion";					// Lable for basic minion
 	minBNameTxt.selectable = false;						// Making it so usercan't highlught tetx 
 	addChild(minBNameTxt);						// sending to stage
@@ -507,7 +508,7 @@ function lowerThird():void								// Lower Third Function
 	
 
 	this.graphics.beginFill(0x000000);
-	this.graphics.drawRoundRect(20,420,100,75,7,7); 	// Basic Minions box
+	this.graphics.drawRoundRect(20,421,100,75,7,7); 	// Basic Minions box
 
 
 
@@ -520,7 +521,7 @@ function lowerThird():void								// Lower Third Function
 	
 	
 	
-	minionStatHeader(130,418,5,1,1,5,basCost);			// Creating Visual Display of basic minion  stats 
+	//minionStatHeader(130,418,5,1,1,5,basCost);			// Creating Visual Display of basic minion  stats 
 	
 	this.graphics.beginFill(0x000000);
 	this.graphics.drawRoundRect(20,510,100,75,7,7);		// Creating Large minion box
@@ -535,38 +536,58 @@ function lowerThird():void								// Lower Third Function
 	this.graphics.drawCircle(65,545,9);					// Default image will  change once get graphic
 	
 	
-	minionStatHeader(130,505,2,4,4,2, larCost);			// Creating Visual Display of Large minion stats 	
+	//minionStatHeader(130,505,2,4,4,2, larCost);			// Creating Visual Display of Large minion stats 	
 	
 	
 	this.graphics.beginFill(0x000000);					
-	this.graphics.drawRoundRect(200,420,100,75,7,7);	// Creating Intermedate box
+	this.graphics.drawRoundRect(190,421,100,75,7,7);	// Creating Intermedate box
 	
-	minINameTxt.x = 198;								// Lable X cords
-	minINameTxt.y = 405;								// Lable Y cords
-	minINameTxt.text = "Intermedite Minion";			// Lable for basic minion
+	minINameTxt.x = 188;								// Lable X cords
+	minINameTxt.y = 406;								// Lable Y cords
+	minINameTxt.text = "Intermediate Minion";			// Lable for basic minion
+	minINameTxt.width = 150;
+    minINameTxt.height = 20;
+	//minINameTxt.wordWrap = true ;
+	//minINameTxt.textColor = 0xE6B800
 	minINameTxt.selectable = false;						// Making it so usercan't highlught tetx 
 	stage.addChild(minINameTxt);						// sending to stage
 	
 	graphics.beginFill(0x00FF00);						// Sending Inntermdate minion To stage
-	this.graphics.drawCircle(250,455,7);				// Default image will  change once get graphic		
+	this.graphics.drawCircle(230,455,7);				// Default image will  change once get graphic		
 
 
-	minionStatHeader(308,418,4,2,2,4, intCost);			// Creating Visual Display of Int minion stats 	
+	//minionStatHeader(308,418,4,2,2,4, intCost);			// Creating Visual Display of Int minion stats 	
 
 
 	this.graphics.beginFill(0x000000);
-	this.graphics.drawRoundRect(200,510,100,75,7,7);	// Create Tank box
+	this.graphics.drawRoundRect(190,510,100,75,7,7);	// Create Tank box
 	
-	minTNameTxt.x = 215;								// Lable X cords
+	minTNameTxt.x = 205;								// Lable X cords
 	minTNameTxt.y = 492;								// Lable Y cords
 	minTNameTxt.text = "Tank Minion";					// Lable for basic minion
 	minTNameTxt.selectable = false;						// Making it so usercan't highlught tetx 
 	stage.addChild(minTNameTxt);						// sending to stage
 	
 	graphics.beginFill(0xD4D4D4)						// Sending Tank minion To stage
-	this.graphics.drawCircle(250,545,15);				// Default image will  change once get graphic
+	this.graphics.drawCircle(230,545,15);				// Default image will  change once get graphic
 
-	minionStatHeader(308,505,1,5,5,1,tankCost);			// Creating Visual Display of Tank minion stats 	
+	//minionStatHeader(308,505,1,5,5,1,tankCost);			// Creating Visual Display of Tank minion stats 	
+
+	this.graphics.beginFill(0x000000);
+	this.graphics.drawRoundRect(360,510,100,75,7,7);	// Create Giant box
+	
+	minGNameTxt.x = 373;								// Lable X cords
+	minGNameTxt.y = 492;								// Lable Y cords
+	minGNameTxt.text = "Giant Minion";					// Lable for basic minion
+	minGNameTxt.selectable = false;						// Making it so usercan't highlught tetx 
+	stage.addChild(minGNameTxt);						// sending to stage
+	
+	graphics.beginFill(0x9900CC)						// Sending Tank minion To stage
+	this.graphics.drawCircle(410,545,20);				// Default image will  change once get graphic
+
+	//minionStatHeader(308,505,1,5,5,1,tankCost);			// Creating Visual Display of Tank minion stats 	
+
+
 
 
 	this.graphics.endFill();
