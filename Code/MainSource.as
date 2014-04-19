@@ -1,4 +1,4 @@
-///////////////////////////////////////////////////////////////////////////
+﻿///////////////////////////////////////////////////////////////////////////
 // By: Alan Yeats
 // HNC COMPUTER GAME DEVELOPEMENT 
 // GRADED UNIT
@@ -8,8 +8,6 @@
 
 
 stop();		// Stop the timeline as everything will be done from movie clips and thus be on the one frame
-
-
 
 // Imports
 import flash.display.Sprite;
@@ -61,7 +59,6 @@ var finDir:String;						// Finish Direction
 var startCoord:int;						// The Start Coords
 
 
-var currentLvl:int = 0;					// Setting the curret level to 0
 var lvlOneArray:Array = new Array();	// Creating the Array to hold the first level Map
 var lvlTwoArray:Array = new Array();	// Creating the Array to hold the Second level Map	
 
@@ -99,13 +96,13 @@ var sTurretCount:int; 					// Creating a cout for number of slow turrets
 var minionOnStage:int;					// Find the total 
 
 
-
+var currentLvl:int = 1; 
 
 var minBNameTxt:TextField = new TextField;			// Creating Text Field For name of Basic minions
 var minINameTxt:TextField = new TextField;			// Creating Text Field For name of Intermdiate minions
 var minLNameTxt:TextField = new TextField;			// Creating Text Field For name of Large minions
 var minTNameTxt:TextField = new TextField;			// Creating Text Field For name of Tank minions
-	
+var minGNameTxt:TextField = new TextField;          	// Creating Text Field For name of Giant minions	
 
 var headerHolder:Sprite = new Sprite				// Creates the header holder 
 
@@ -125,6 +122,24 @@ S,1,1,D,0,0,0,0,1,0,0,R,1,1,1,1,1,1,1,1,1,F,
 0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,R,1,1,1,1,U,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+//got to be changed when get finnonghy map
+];
+lvlTwoArray = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+S,R,R,D,0,0,0,0,0,0,0,0,R,R,R,R,R,R,R,R,R,F,
+0,0,0,D,0,0,0,0,0,0,0,0,U,0,0,0,0,0,0,0,0,0,
+0,0,0,D,0,0,0,0,0,0,0,0,U,0,0,0,0,0,0,0,0,0,
+0,0,0,D,0,0,0,0,0,0,0,0,U,0,0,0,0,0,0,0,0,0,
+0,0,0,R,R,R,R,R,R,R,R,R,U,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 //got to be changed when get finnonghy map
 ];
@@ -153,7 +168,7 @@ function startLvl():void 						// Start Game Function
 	
 	placeTurrets();								// call placeTurret function
 
-	addChild(headerHolder);
+	
 	
 }
 
@@ -162,20 +177,23 @@ var roadHolder:Sprite = new Sprite();			// Create a new Sprite to hold the road
 addChild(roadHolder);							// sending the road to the stage
 
 
-function makeRoad():void						// Make Road Funcion 
+function makeRoad(lvl:int):void						// Make Road Funcion 
 {
 	var lvlArray;
 	var row:int = 0;								// Inilising row 
 	var block;										// Inilising Block var
-	
-	
-	for (var i:int=0; i<lvlOneArray.length; i++)		// Loop though Lvel Array 
+
+	switch(lvl)
+	{
+	case 1:
+
+	for (var i:int=0; i<lvlTwoArray.length; i++)		// Loop though Lvel Array 
 	{ 
 
 
 ///////////////////////////////////////////////////////////////////////////		
 		
-		if (lvlOneArray[i] == 1)					// If it a path block
+		if (lvlTwoArray[i] == 1)					// If it a path block
 		{
 			block = new Shape();
 			block.graphics.beginFill(0x111111);
@@ -186,9 +204,9 @@ function makeRoad():void						// Make Road Funcion
 			roadHolder.addChild(block);
 		}
 ///////////////////////////////////////////////////////////////////////////		
-		else if (lvlOneArray[i] is String)				// If its a movement block
+		else if (lvlTwoArray[i] is String)				// If its a movement block
 		{
-			block = new DirectBlock(lvlOneArray[i],(i - row * 22) * 25,row * 25);		//Create a new Direction Block
+			block = new DirectBlock(lvlTwoArray[i],(i - row * 22) * 25,row * 25);		//Create a new Direction Block
 			addChild(block);						// Send Block To the stage
 
 		}
@@ -202,6 +220,45 @@ function makeRoad():void						// Make Road Funcion
 		}// end for
 
 	} // end for
+	
+	break;
+	
+	case 2: 
+	for (var j:int=0; j<lvlOneArray.length; j++)		// Loop though Lvel Array 
+	{ 
+
+
+///////////////////////////////////////////////////////////////////////////		
+		
+		if (lvlOneArray[j] == 1)					// If it a path block
+		{
+			block = new Shape();
+			block.graphics.beginFill(0x111111);
+			block.graphics.drawRect(0,0,25,25);
+			block.graphics.endFill();				// Will remove once get map and graphics
+			block.x = (j - row * 22) * 25;
+			block.y = row * 25;
+			roadHolder.addChild(block);
+		}
+///////////////////////////////////////////////////////////////////////////		
+		else if (lvlOneArray[j] is String)				// If its a movement block
+		{
+			block = new DirectBlock(lvlOneArray[j],(j - row * 22) * 25,row * 25);		//Create a new Direction Block
+			addChild(block);						// Send Block To the stage
+
+		}
+		for (var cols:int = 1; cols<=16; cols++)				// Loop for number of cols
+		{
+			if (i == cols*22-1)								// If reach end of col
+			{
+				row++;										// move to the next col
+			} // end if
+			
+		}// end for
+
+	} // end for
+	
+}// end of switch 
 
 }// end of function
 
@@ -215,7 +272,7 @@ function placeTurrets():void					// Place Turret Function
 		makeTurret(100,200,1);					// Makes Basic tower
 		makeTurret(220,140,1);					// Makes Slow Tower 
 	}
-	if (currentLvl ==2)
+	if (currentLvl == 2)
 	{
 	
 		makeTurret(100,250,1);
@@ -248,7 +305,7 @@ function restartStage(){
 	minINameTxt.x = 5000;
 	
 	//roadHolder.parent.removeChildren(0,25);
-	roadHolder.parent.removeChildren(0,10);
+	//roadHolder.parent.removeChildren(0,10);
 }
 
 
@@ -281,7 +338,7 @@ function makeTurret(xValue:int,yValue:int,tower:int):void		// Make Turret Functi
 	
 }
 
-function makeEnemiesKey(event:KeyboardEvent):void						 // Make Enemy Function
+function makeEnemiesKey(event:KeyboardEvent):void		 // Make Enemy Function
 {
 	
 	
@@ -390,7 +447,7 @@ function makeEnemiesClick(e:MouseEvent):void			// Mouse Click detection for mini
 }
 
 
-function everFrame(e:Event):void									// Function will run every frame 
+function everFrame(e:Event):void						// Function will run every frame 
 {	
 	//trace(minionOnStage);
 	createText();													// Call Create text to keep user updated on stats 
@@ -434,14 +491,12 @@ function everFrame(e:Event):void									// Function will run every frame
 	if (levelWin == true)											// If level win 
 	{
 													
-		var winLvl:TextField = new TextField;
-		winLvl.text = "Well Done you won Lvl Completed: " + currentLvl;
-		winLvl.x	= 250;
-		winLvl.y 	= 50;
-		addChild(winLvl);
 		levelWin = false;											// Set Levelwin back to false
 		startLvl();													// reset the level and call start round
 		restartStage();	
+		gameOver = true;
+		gotoAndStop(49, "Scene 2");
+		
 	}
 	
 	
@@ -547,6 +602,7 @@ function lowerThird():void								// Lower Third Function
 	minINameTxt.selectable = false;						// Making it so usercan't highlught tetx 
 	stage.addChild(minINameTxt);						// sending to stage
 	
+
 	graphics.beginFill(0x00FF00);						// Sending Inntermdate minion To stage
 	this.graphics.drawCircle(250,455,7);				// Default image will  change once get graphic		
 
@@ -569,6 +625,19 @@ function lowerThird():void								// Lower Third Function
 	minionStatHeader(308,505,1,5,5,1,tankCost);			// Creating Visual Display of Tank minion stats 	
 
 
+	this.graphics.beginFill(0x000000);
+	this.graphics.drawRoundRect(360,510,100,75,7,7);	// Create Giant box
+	
+	minGNameTxt.x = 373;								// Lable X cords
+	minGNameTxt.y = 492;								// Lable Y cords
+	minGNameTxt.text = "Giant Minion";					// Lable for basic minion
+	minGNameTxt.selectable = false;						// Making it so usercan't highlught tetx 
+	stage.addChild(minGNameTxt);						// sending to stage
+	
+	graphics.beginFill(0x9900CC)						// Sending Tank minion To stage
+	this.graphics.drawCircle(410,545,20);				// Default image will  change once get graphic
+
+	//minionStatHeader(308,505,1,5,5,1,tankCost);			// Creating Visual Display of Tank minion stats 	
 	this.graphics.endFill();
 	
 
@@ -594,7 +663,7 @@ function minionStatHeader(xPos:int, yPos:int, speed:int, health:int, damange:int
 	healthTxt.x = xPos;								// Lable X cords
 	healthTxt.y = yPos+15;							// Lable Y cords
 	healthTxt.text = "Health";						// Lable for Speed
-	speedTxt.selectable = false;					// Making it so usercan't highlught tetx 
+	healthTxt.selectable = false;					// Making it so usercan't highlught tetx 
 	stage.addChild(healthTxt);						// sending to stage
 	
 	minionStats(health,xPos,yPos+25);				// Calling minion graphical display 
@@ -737,7 +806,7 @@ function minionStats(grade:int, xPos:int, yPos:int):void				// Function used to 
 											// Functions that will only need to be called once 
 											
 lowerThird();								// Call lower third function
-makeRoad();									// call make road function
+makeRoad(currentLvl);									// call make road function
 var enemyHolder:Sprite = new Sprite();		
 addChild(enemyHolder);						
 startLvl();									// call lvl game function	
