@@ -26,7 +26,7 @@ package
 		public var health:int = 18;		// Heath of minion
 		public var BMDamange:int = 20;	// The Damage they will do to the castle
 
-
+		var dieMS:miniondieingsound = new miniondieingsound();		// Dieing sound
 		public function MedEnemy()
 		{
 			this.addEventListener(Event.ADDED, beginClass);
@@ -143,6 +143,7 @@ package
 			
 			if (health <= 0)
 			{
+				dieMS.play();
 				destroyThis();												// Remove all remaining minions if the castle has been destoryed
 			}
 		}

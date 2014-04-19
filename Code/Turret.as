@@ -14,7 +14,7 @@ package
 
 	public class Turret extends MovieClip
 	{
-		
+		var shootS:turretsounds = new turretsounds();
 		private var _root:MovieClip;
 		
 		// All Varible can be change if needed to balance the game
@@ -83,6 +83,7 @@ package
 				// checking the turret can shot
 				if (canShoot)
 				{
+					shootS.play();
 					canShoot = false; 					// Reset canShoot 
 					var pewpew:Bullet = new Bullet();	// Create a new bullet object
 					pewpew.x = this.x;					// Setting the X Coords for the bullet to curret X

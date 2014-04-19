@@ -24,7 +24,8 @@ package  {
 		public var maxSpeed:int = 2;	// max speed
 		public var health:int = 25;		// Heath of minion
 		public var BMDamange:int = 25;	// The Damage they will do to the castle
-
+		
+		var dieLS:miniondieingsound = new miniondieingsound();		// Dieing sound
 
 
 		public function LargeEnemy() {
@@ -137,11 +138,13 @@ package  {
 			if (_root.gameOver)
 			{
 				destroyThis();												// Remove minion from stage
+				
 			}
 			
 			
 			if (health <= 0)
 			{
+				dieLS.play();
 				destroyThis();												// Remove all remaining minions if the castle has been destoryed
 			}
 		}

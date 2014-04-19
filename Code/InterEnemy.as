@@ -26,7 +26,7 @@ package
 		public var health:int = 12;		// Heath of minion
 		public var BMDamange:int = 15;	// The Damage they will do to the castle
 
-
+		var dieIS:miniondieingsound = new miniondieingsound();		// Dieing sound
 		public function InterEnemy()
 		{
 			this.addEventListener(Event.ADDED, beginClass);
@@ -137,12 +137,13 @@ package
 																			// If Game over then destory the minion
 			if (_root.gameOver)
 			{
+				
 				destroyThis();												// Remove minion from stage
 			}
 			
 			
 			if (health <= 0)
-			{
+			{	dieIS.play();
 				destroyThis();												// Remove all remaining minions if the castle has been destoryed
 			}
 		}

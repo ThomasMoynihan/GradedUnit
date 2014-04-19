@@ -14,9 +14,14 @@ package
 	import flash.events.*;
 	import flash.display.DisplayObjectContainer;
 
+
+	
 	public class Enemy extends MovieClip
 	{	
-		
+	
+	
+		var dieS:miniondieingsound = new miniondieingsound();		// Dieing sound
+
 		var bmionion:basic_M = new basic_M();		// Declaring graphics for minion
 		
 		private var _root:MovieClip;
@@ -142,6 +147,7 @@ package
 			
 			if (health <= 0)
 			{
+				dieS.play();
 				destroyThis();												// Remove all remaining minions if the castle has been destoryed
 			}
 			

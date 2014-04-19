@@ -23,7 +23,7 @@ package  {
 		public var maxSpeed:int = 1;	// max speed
 		public var health:int = 35;		// Heath of minion
 		public var BMDamange:int = 50;	// The Damage they will do to the castle
-
+		var dieTS:miniondieingsound = new miniondieingsound();		// Dieing sound		
 
 		public function TankEnemy() {
 		this.addEventListener(Event.ADDED, beginClass);
@@ -135,12 +135,14 @@ package  {
 																			// If Game over then destory the minion
 			if (_root.gameOver)
 			{
+				
 				destroyThis();												// Remove minion from stage
 			}
 			
 			
 			if (health <= 0)
 			{
+				dieTS.play();
 				destroyThis();												// Remove all remaining minions if the castle has been destoryed
 			}
 		}

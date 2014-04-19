@@ -61,8 +61,10 @@ var startCoord:int;						// The Start Coords
 
 var lvlOneArray:Array = new Array();	// Creating the Array to hold the first level Map
 var lvlTwoArray:Array = new Array();	// Creating the Array to hold the Second level Map	
+var lvlThreeArray:Array = new Array();	// Creating the Array to hold the Third level Map	
+var lvlFourArray:Array = new Array();	// Creating the Array to hold the Third level Map
 
-										
+
 var money:int;							// Inigicating the money the player will have  
 
 
@@ -104,8 +106,12 @@ var minLNameTxt:TextField = new TextField;			// Creating Text Field For name of 
 var minTNameTxt:TextField = new TextField;			// Creating Text Field For name of Tank minions
 var minGNameTxt:TextField = new TextField;          	// Creating Text Field For name of Giant minions	
 
-
 var headerHolder:Sprite = new Sprite				// Creates the header holder 
+
+
+var deployS:deploymentsound = new deploymentsound();		// Deploying sound
+var losingS:losingsound = new losingsound();				// Losing sound
+var dieS:miniondieingsound = new miniondieingsound();		// Dieing sound
 
 
 lvlOneArray = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -144,6 +150,44 @@ S,R,R,D,0,0,0,0,0,0,0,0,R,R,R,R,R,R,R,R,R,F,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 //got to be changed when get finnonghy map
 ];
+lvlThreeArray = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+S,R,R,D,0,0,0,0,0,0,0,0,R,R,R,R,R,R,R,R,R,F,
+0,0,0,D,0,0,0,0,0,0,0,0,U,0,0,0,0,0,0,0,0,0,
+0,0,0,D,0,0,0,0,0,0,0,0,U,0,0,0,0,0,0,0,0,0,
+0,0,0,D,0,0,0,0,0,0,0,0,U,0,0,0,0,0,0,0,0,0,
+0,0,0,R,R,R,R,R,R,R,R,R,U,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+//got to be changed when get finnonghy map
+];
+lvlFourArray = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+S,R,R,D,0,0,0,0,0,0,0,0,R,R,R,R,R,R,R,R,R,F,
+0,0,0,D,0,0,0,0,0,0,0,0,U,0,0,0,0,0,0,0,0,0,
+0,0,0,D,0,0,0,0,0,0,0,0,U,0,0,0,0,0,0,0,0,0,
+0,0,0,D,0,0,0,0,0,0,0,0,U,0,0,0,0,0,0,0,0,0,
+0,0,0,R,R,R,R,R,R,R,R,R,U,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+//got to be changed when get finnonghy map
+];
+
+
 
 function startLvl():void 						// Start Game Function 										
 {												// Will run at the start of each level
@@ -259,6 +303,82 @@ function makeRoad(lvl:int):void						// Make Road Funcion
 
 	} // end for
 	
+	case 3:
+
+	for (var i:int=0; i<lvlThreeArray.length; i++)		// Loop though Lvel Array 
+	{ 
+
+
+///////////////////////////////////////////////////////////////////////////		
+		
+		if (lvlThreeArray[i] == 1)					// If it a path block
+		{
+			block = new Shape();
+			block.graphics.beginFill(0x111111);
+			block.graphics.drawRect(0,0,25,25);
+			block.graphics.endFill();				// Will remove once get map and graphics
+			block.x = (i - row * 22) * 25;
+			block.y = row * 25;
+			roadHolder.addChild(block);
+		}
+///////////////////////////////////////////////////////////////////////////		
+		else if (lvlThreeArray[i] is String)				// If its a movement block
+		{
+			block = new DirectBlock(lvlThreeArray[i],(i - row * 22) * 25,row * 25);		//Create a new Direction Block
+			addChild(block);						// Send Block To the stage
+
+		}
+		for (var col:int = 1; col<=16; col++)				// Loop for number of cols
+		{
+			if (i == col*22-1)								// If reach end of col
+			{
+				row++;										// move to the next col
+			} // end if
+			
+		}// end for
+
+	} // end for
+	
+	break;
+	
+	case 4:
+
+	for (var i:int=0; i<lvlFourArray.length; i++)		// Loop though Lvel Array 
+	{ 
+
+
+///////////////////////////////////////////////////////////////////////////		
+		
+		if (lvlFourArray[i] == 1)					// If it a path block
+		{
+			block = new Shape();
+			block.graphics.beginFill(0x111111);
+			block.graphics.drawRect(0,0,25,25);
+			block.graphics.endFill();				// Will remove once get map and graphics
+			block.x = (i - row * 22) * 25;
+			block.y = row * 25;
+			roadHolder.addChild(block);
+		}
+///////////////////////////////////////////////////////////////////////////		
+		else if (lvlFourArray[i] is String)				// If its a movement block
+		{
+			block = new DirectBlock(lvlFourArray[i],(i - row * 22) * 25,row * 25);		//Create a new Direction Block
+			addChild(block);						// Send Block To the stage
+
+		}
+		for (var col:int = 1; col<=16; col++)				// Loop for number of cols
+		{
+			if (i == col*22-1)								// If reach end of col
+			{
+				row++;										// move to the next col
+			} // end if
+			
+		}// end for
+
+	} // end for
+	
+	break;
+	
 }// end of switch 
 
 }// end of function
@@ -280,7 +400,23 @@ function placeTurrets():void					// Place Turret Function
 		makeTurret(400,200,1);
 		makeTurret(120,140,2);
 	}
-
+	if (currentLvl == 3)
+	{
+	
+		makeTurret(100,250,1);
+		makeTurret(400,200,1);
+		makeTurret(120,140,2);
+	}
+	if (currentLvl == 4)
+	{
+			makeTurret(100,250,1);
+		makeTurret(400,200,1);
+		makeTurret(120,140,2);
+		makeTurret(100,250,1);
+		makeTurret(400,200,1);
+		makeTurret(120,140,2);
+	}
+	
 //	makeTurretB(125,75);
 //	makeTurretB(250,75);
 //	makeTurretB(50,150);
@@ -352,7 +488,7 @@ function makeEnemiesKey(event:KeyboardEvent):void		 // Make Enemy Function
 		basMinCount -= basMinCool;								// Reset Cooldown
 		money -=basCost;										// Take cost of minion away from money total 
 		totalMinions ++;										// Adding to total minions count
-		
+		deployS.play();
 	}
 	
 	if (event.keyCode == 87 && intMinCount == intMinCool && money >= intCost) {// Testing if player has hit W key and the cooldown 
@@ -363,6 +499,7 @@ function makeEnemiesKey(event:KeyboardEvent):void		 // Make Enemy Function
 		intMinCount -= intMinCool;								// Reset Cooldown
 		money -=intCost;										// Take cost of minions away from money total
 		totalMinions ++;										// Adding to total minions count
+		deployS.play();
 	}	
 	
 	if (event.keyCode == 69 && medMinCount == medMinCool && money >= medCost) {// Testing if player has hit E key and the cooldown 
@@ -373,6 +510,7 @@ function makeEnemiesKey(event:KeyboardEvent):void		 // Make Enemy Function
 		medMinCount -= medMinCool 								// Reset Cooldown
 		money -=medCost;										// Take cost of minions away from money total
 		totalMinions ++;										// Adding to total minions count
+		deployS.play();
 	}		
 	
 	if (event.keyCode == 82 && larMinCount == larMinCool && money >= larCost) {// Testing if player has hit E key and the cooldown 
@@ -382,6 +520,7 @@ function makeEnemiesKey(event:KeyboardEvent):void		 // Make Enemy Function
 		larMinCount -= larMinCool 								// Reset Cooldown
 		money -=larCost;										// Take cost of minions away from money total
 		totalMinions ++;										// Adding to total minions count
+		deployS.play();
 	}	
 	if (event.keyCode == 84 && tankMinCount == tankMinCool && money >= tankCost) {// Testing if player has hit E key and the cooldown 
 		minionOnStage ++;										// Adds to minions on stage
@@ -391,6 +530,7 @@ function makeEnemiesKey(event:KeyboardEvent):void		 // Make Enemy Function
 		tankMinCount  -= tankMinCool							// Reset Cooldown
 		money -=tankCost;										// Take cost of minions away from money total
 		totalMinions ++;										// Adding to total minions count
+		deployS.play();
 	}		
 	
 }
@@ -410,6 +550,7 @@ function makeEnemiesClick(e:MouseEvent):void			// Mouse Click detection for mini
 		basMinCount -= basMinCool;								// Reset Cooldown
 		money -=basCost;										// Take cost of minion away from money total 
 		totalMinions ++;										// Adding to total minions count
+		deployS.play();
 	}
 		
 	if (e.stageX >=200 && e.stageX <= 297 && e.stageY >= 417  && e.stageY <= 493
@@ -421,7 +562,7 @@ function makeEnemiesClick(e:MouseEvent):void			// Mouse Click detection for mini
 		intMinCount -= intMinCool;								// Reset Cooldown
 		money -=intCost;										// Take cost of minions away from money total
 		totalMinions ++;										// Adding to total minions count	
-			
+		deployS.play();	
 		}	
 	if (e.stageX >=20 && e.stageX <= 120 && e.stageY >= 510  && e.stageY <= 586
 		 && larMinCount == larMinCool && money >= larCost) // Check it within the Large minion box
@@ -432,6 +573,7 @@ function makeEnemiesClick(e:MouseEvent):void			// Mouse Click detection for mini
 		larMinCount -= larMinCool 									// Reset Cooldown
 		money -=larCost;										// Take cost of minions away from money total
 		totalMinions ++;										// Adding to total minions count				
+		deployS.play();
 		}
 		
 	if (e.stageX >=200 && e.stageX <= 297 && e.stageY >= 510  && e.stageY <= 586
@@ -443,6 +585,7 @@ function makeEnemiesClick(e:MouseEvent):void			// Mouse Click detection for mini
 		tankMinCount  -= tankMinCool;							// Reset Cooldown
 		money -=tankCost;										// Take cost of minions away from money total
 		totalMinions ++;										// Adding to total minions count	
+		deployS.play();
 			
 		}
 }
@@ -489,6 +632,13 @@ function everFrame(e:Event):void						// Function will run every frame
 	{
 		levelWin = true;											// If Castle has fallen then level win
 	}
+	if (levelWin == true && currentLvl == 4)
+	{
+		
+		restartStage();
+		gameOver = true;
+		gotoAndStop(50, "Scene 2");
+	}
 	if (levelWin == true)											// If level win 
 	{
 													
@@ -496,19 +646,19 @@ function everFrame(e:Event):void						// Function will run every frame
 		startLvl();													// reset the level and call start round
 		restartStage();	
 		gameOver = true;
-<<<<<<< HEAD:Code/MainSource.as
-		gotoAndStop(49, "Scene 2");
 		
-=======
->>>>>>> 0df56ac09814d64f0a9b59eb64f9d7b2eeb3dc6a:Code/MainSource.as
+		
+		
 	}
-	
+
 	
 	if(money < basCost && minionOnStage == 0 || money == 0 && minionOnStage == 0)						// Checks if there are many minion on screen and if they have money to buy more
 	{
+		losingS.play();
 		gameOver = true;
 		trace(gameOver);
 		restartStage();
+		gotoAndStop(45, "Scene 2");
 	}
 	
 
@@ -566,7 +716,6 @@ function lowerThird():void								// Lower Third Function
 	
 
 	this.graphics.beginFill(0x000000);
-
 	this.graphics.drawRoundRect(20,420,100,75,7,7); 	// Basic Minions box
 
 
