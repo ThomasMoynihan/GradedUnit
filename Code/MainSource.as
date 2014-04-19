@@ -104,6 +104,7 @@ var minLNameTxt:TextField = new TextField;			// Creating Text Field For name of 
 var minTNameTxt:TextField = new TextField;			// Creating Text Field For name of Tank minions
 var minGNameTxt:TextField = new TextField;          	// Creating Text Field For name of Giant minions	
 
+
 var headerHolder:Sprite = new Sprite				// Creates the header holder 
 
 
@@ -495,8 +496,11 @@ function everFrame(e:Event):void						// Function will run every frame
 		startLvl();													// reset the level and call start round
 		restartStage();	
 		gameOver = true;
+<<<<<<< HEAD:Code/MainSource.as
 		gotoAndStop(49, "Scene 2");
 		
+=======
+>>>>>>> 0df56ac09814d64f0a9b59eb64f9d7b2eeb3dc6a:Code/MainSource.as
 	}
 	
 	
@@ -562,6 +566,7 @@ function lowerThird():void								// Lower Third Function
 	
 
 	this.graphics.beginFill(0x000000);
+
 	this.graphics.drawRoundRect(20,420,100,75,7,7); 	// Basic Minions box
 
 
