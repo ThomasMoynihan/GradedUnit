@@ -1,0 +1,34 @@
+Game Objects
+Friendly Units
+All of the friendly units that the player calls in would be hovercrafts. They have different colours and sizes to help identify them. Each hovercraft does a different amount of damage to the enemy base and can withstand a different amount of damage. These units will travel along the set path of each level and attempt to make it to the enemy base to destroy it.
+Small Unit (Tiny Tim)
+This unit is a small, similar in size to a double bed, one seat hovercraft with low health and high speed. It can be destroyed in a few hits with the weaker towers, however, it is the fastest unit the player can summon and it is also the cheapest. This unit does a very small amount of damage to the enemy base. This unit would be mainly white in colour.
+Intermediate Unit (Small Riley)
+This unit is roughly van sized which makes it slightly larger than the small unit and does more damage to the enemy base. It is somewhat more expensive than the small unit. It travels fairly quickly and cannot be easily destroyed by the enemy’s weakest towers. This unit would be green in colour.
+Medium Unit (Medium Mark)
+This unit would be similar in size to a lorry and it would do a fairly large amount of damage to the enemy base. It requires a moderate amount of currency to summon and it moves at a medium speed and can take quite a large amount of damage before it is destroyed. This unit would be blue.
+Large Unit (Tall Kimberly)
+This unit would be similar in size to a house and it would do a lot of damage to the enemy base. It would require a very large amount of currency to summon and could take a huge amount of damage before they were destroyed. This unit moves quite slowly and would be red in colour.
+Giant Unit (Big Bertha)
+This would be the biggest unit in the game being around the size of an ocean liner. This unit would require a massive amount of currency to summon and could take a colossal amount of damage before it was destroyed. This unit would move incredibly slowly and would be purple in colour.
+Enemy Towers
+All of the enemy towers would be made of and would look like chocolate. These towers serve the purpose of destroying the player’s units and give the game an element of difficulty.
+Single Shot Tower (Chocolate Chip Chucker)
+This tower is the basic medium speed, medium damage enemy entity. This tower would be made of milk chocolate and would launch chocolate chips at the player’s hovercraft which are within it fairly small range. It can destroy the small unit with relative ease but it would take a lot of shots for this unit to destroy the giant unit on its own.
+Slowing Tower (Caramel Crawler)
+This tower serves the purpose of slowing down the player’s units so that they can be destroyed by other towers. This tower would not do much damage on its own. It would be made of white chocolate and it would fire pieces of melted caramel at the player’s units that were within range of it.
+Area of Effect Tower (Popping Candy Cannon)
+This tower attacks the player’s with a barrage of bomb-style projectiles that damage a few units within a radius of the explosion. This tower would be made of dark chocolate and the projectile it fired would be popping candy. This unit would have a fairly large range but would do limited damage to all units aside from the one that is directly hit with the bomb.
+Enemy Projectiles
+This section will describe the projectiles that the enemy towers fire.
+Melted Caramel (Slowing Material)
+The melted caramel, fired by the Slowing Tower, would decrease the speed at which the player’s units advance towards the enemy base. This projectile would attach to a player’s unit for a certain length of time before disappearing. After it disappeared the unit would return to normal speed.
+Popping Candy (Area of Effect Material)
+The popping candy, fired by the Area of Effect Tower, would do a splash attack centred on the unit the projectile hits. The centre of the explosion will do a large amount of damage and all player units within a small radius will take a lesser amount of damage.
+Chocolate Chips (Single Shot Material)
+The chocolate chips, fired by the Single Shot Tower, would do a small amount of damage to the unit it hits. The chocolate chips would have no other effects. After hitting a unit or reaching the end of the Single Shot Tower’s range the projectile will despawn.
+Control Scheme
+Menus
+The game menus are navigated with cursor movement and mouse clicks. Accessing each of the menu items can be done by scrolling over them with the cursor and left clicking them. Doing so will take you to the next screen of that option where you will be presented with more options which are navigated and used in the same way: with mouse movement and mouse clicks.
+In-Game Controls
+The game screens can be controlled with mouse movement and mouse clicks, much like the menus. The player would have the ability to select from the five units listed above. These will be displayed in a small bar at the bottom of the game screen and can be called in by clicking each of them. These units can also be called in by pressing the ‘Q’, ‘W’, ‘E’, ‘R’ and ‘T’ keys on the keyboard/num-pad to call in each of the units in ascending size order. 
